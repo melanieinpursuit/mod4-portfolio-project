@@ -1,0 +1,3 @@
+\c wrestlers_dev
+
+INSERT INTO wrestlers (name, birth_date, debut_date, gender,height, weight, billed_from, cagematch_page, recommended_match, image) VALUES ('Orange Cassidy', '05-04-1984', '03-13-2004', 'male', 178, 73, 'Wherever', 'https://www.cagematch.net/?id=2&nr=2813', 'https://www.youtube.com/watch?v=A32sT1c-btU', 'https://www.canva.com/design/DAFaddBvbpo/NLbjCIPA-tojNtoci_JT6g/view?utm_content=DAFaddBvbpo&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink');
