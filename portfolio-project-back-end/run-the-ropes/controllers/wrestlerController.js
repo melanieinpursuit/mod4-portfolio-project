@@ -3,6 +3,8 @@ const wrestlers = express.Router()
 const {
     checkName, validateURL
 } = require('../validations/checkWrestlers')
+const commentsController = require('./commentsController.js')
+wrestlers.use('/:wrestlerId/comments', commentsController)
 const {
     getAllWrestlers,
     getWrestler,
@@ -11,7 +13,7 @@ const {
     updateWrestler
 } = require('../queries/wrestlers')
 
-// INDEX PAGE
+// GET ALL WRESTLERS
 wrestlers.get('/', async (req, res) => {
     const allWrestlers = await getAllWrestlers();
     if (allWrestlers[0]) {

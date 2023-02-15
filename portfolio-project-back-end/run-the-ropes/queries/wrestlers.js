@@ -12,7 +12,7 @@ const getAllWrestlers = async () => {
 
 const getWrestler = async (id) => {
     try {
-        const wrestler = await db.one('SELECT * from wrestlers WHERE id=$1', id)
+        const wrestler = await db.one('SELECT * FROM wrestlers WHERE id=$1', id)
         return wrestler
     } catch (error) {
         return error
@@ -22,7 +22,7 @@ const getWrestler = async (id) => {
 const createWrestler = async (wrestler) => {
     let { name, birth_date, debut_date, gender, height, weight, billed_from, cagematch_page, recommended_match, image } = wrestler
     try {
-        // if (!image) image = 'https://unsplash.com/photos/PTv-B97DHNI'
+        if (!image) image = 'https://unsplash.com/photos/PTv-B97DHNI'
         const newWrestler = await db.one('INSERT INTO wrestlers (name, birth_date, debut_date, gender, height, weight, billed_from, cagematch_page, recommended_match, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *', [name, birth_date, debut_date, gender, height, weight, billed_from, cagematch_page, recommended_match, image])
         return newWrestler
     } catch (error) {

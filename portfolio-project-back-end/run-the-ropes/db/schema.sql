@@ -14,5 +14,18 @@ CREATE TABLE wrestlers (
     billed_from TEXT,
     cagematch_page TEXT,
     recommended_match TEXT,
+    bio TEXT,
     image TEXT
-)
+);
+
+DROP TABLE IF EXISTS comments;
+
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    commenter TEXT NOT NULL,
+    content TEXT,
+    rating NUMERIC,
+    CHECK (rating >= 0 AND rating <= 10),
+    wrestler_id INTEGER REFERENCES wrestlers (id)
+    ON DELETE CASCADE
+);
